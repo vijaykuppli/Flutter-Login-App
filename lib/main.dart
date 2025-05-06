@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:robosoftassignment/presentation/screens/screens/login_scren.dart';
+import 'package:robosoftassignment/presentation/screens/screens/product_screen.dart';
+import 'package:robosoftassignment/presentation/screens/screens/signup_screen.dart';
+import 'package:robosoftassignment/repositories/auth_repository.dart';
+
+void main() {
+  runApp(AssignmentApp());
+}
+
+class AssignmentApp extends StatelessWidget {
+  AssignmentApp({super.key});
+  final authRepository = AuthRepository();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+final GoRouter router = GoRouter(
+  routes: [
+    GoRoute(path: '/', builder: (context, state) => SignupScreen()),
+    GoRoute(path: '/login', builder: (context, state) => LoginScren()),
+    GoRoute(path: '/product', builder: (context, state) => ProductScreen()),
+  ],
+);
