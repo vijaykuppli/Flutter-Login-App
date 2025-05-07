@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
@@ -18,7 +17,6 @@ class _LoginState extends State<LoginScren> {
   final _formKey = GlobalKey<FormState>(); // 🔑 Form key
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  String? _selectedGender;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
