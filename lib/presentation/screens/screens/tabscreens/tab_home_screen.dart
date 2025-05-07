@@ -17,9 +17,8 @@ class TabHomeScreen extends StatefulWidget {
 }
 
 class _TabHomeScreenState extends State<TabHomeScreen> {
-  final _formKey = GlobalKey<FormState>(); // 🔑 Form key
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  var _formKey = GlobalKey<FormState>(); // 🔑 Form key
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,6 +126,10 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                     BlocConsumer<ProductCubit, ApiState>(
                       listener: (context, state) {
                         if (state is ApiSuccess) {
+                          setState(() {
+                            context.go("/product");
+                          });
+                        
                           ScaffoldMessenger.of(context).showSnackBar(
                             CustomSnackBar(
                               message: 'Product Added Successfully',
@@ -134,7 +137,13 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                             ),
                           );
                         } else if (state is ApiFailure) {
-                          context.go("/snackbar");
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            CustomSnackBar(
+                              message:
+                                  'Product Not added Successfully. Please try again later',
+                              backgroundColor: Colors.black,
+                            ),
+                          );
                         }
                       },
                       builder: (context, state) {

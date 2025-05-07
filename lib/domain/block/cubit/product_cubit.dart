@@ -23,4 +23,15 @@ class ProductCubit extends Cubit<ApiState> {
       emit(ApiFailure("Adding Product has failed"));
     }
   }
+
+  void getProductsList() async{
+    emit(ApiLoading());
+
+     try {
+      final token = await _productRepository.getProductsList();
+      emit(ApiSuccess(token));
+    } catch (e) {
+      emit(ApiFailure("Adding Product has failed"));
+    }
+  }
 }

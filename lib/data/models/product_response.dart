@@ -7,11 +7,12 @@ part 'product_response.g.dart';
 class ProductResponse with _$ProductResponse {
   const factory ProductResponse({
     required int id,
-    required String name,
+    String? name,
     double? price,
     String? description,
+    String? image
   }) = _ProductResponse;
 
-  factory ProductResponse.fromJson(Map<String, dynamic> json) =>
+  factory ProductResponse.fromJson(Map<String , dynamic> json) =>
       _$ProductResponseFromJson(json);
 }

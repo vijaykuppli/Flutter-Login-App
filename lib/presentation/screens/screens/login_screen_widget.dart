@@ -93,9 +93,9 @@ class _LoginState extends State<LoginScren> {
                   BlocConsumer<LoginCubit, ApiState>(
                     listener: (context, state) {
                       if (state is ApiSuccess) {
-                        context.go('/product');
+                        context.push('/product');
                       } else if (state is ApiFailure) {
-                        context.go("/product");
+                        context.push("/product");
                       }
                     },
                     builder: (context, state) {

@@ -1,8 +1,8 @@
 sealed class ApiState {}
 class ApiInitial extends ApiState {}
 class ApiLoading extends ApiState {}
-class ApiSuccess extends ApiState {
-  final String token;
+class ApiSuccess<T> extends ApiState {
+  final T token;
   ApiSuccess(this.token);
 }
 class ApiFailure extends ApiState {

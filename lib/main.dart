@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/presentation/screens/screens/login_screen_widget.dart';
 import 'package:robosoftassignment/presentation/screens/screens/product_screen_widget.dart';
 import 'package:robosoftassignment/data/repositories/auth_repository.dart';
+import 'package:robosoftassignment/presentation/screens/screens/signup_screen_widget.dart';
 
 void main() {
   runApp(AssignmentApp());
@@ -23,7 +24,7 @@ class AssignmentApp extends StatelessWidget {
 
 final GoRouter router = GoRouter(
   routes: [
-    GoRoute(path: '/', builder: (context, state) => ProductScreen()),
+    GoRoute(path: '/', builder: (context, state) => SignupScreen()),
     GoRoute(path: '/login', builder: (context, state) => LoginScren()),
     GoRoute(path: '/product', builder: (context, state) => ProductScreen()),
   ],

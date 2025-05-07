@@ -10,9 +10,10 @@ _$ProductResponseImpl _$$ProductResponseImplFromJson(
   Map<String, dynamic> json,
 ) => _$ProductResponseImpl(
   id: (json['id'] as num).toInt(),
-  name: json['name'] as String,
+  name: json['name'] as String?,
   price: (json['price'] as num?)?.toDouble(),
   description: json['description'] as String?,
+  image: json['image'] as String?,
 );
 
 Map<String, dynamic> _$$ProductResponseImplToJson(
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$ProductResponseImplToJson(
   'name': instance.name,
   'price': instance.price,
   'description': instance.description,
+  'image': instance.image,
 };

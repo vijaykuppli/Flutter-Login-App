@@ -158,9 +158,9 @@ class SignUpState extends State<SignupScreen> {
                   BlocConsumer<LoginCubit, ApiState>(
                     listener: (context, state) {
                       if (state is ApiSuccess) {
-                        context.go('/login');
+                        context.push('/login');
                       } else if (state is ApiFailure) {
-                        context.go("/login");
+                        context.push("/login");
                       }
                     },
                     builder: (context, state) {
