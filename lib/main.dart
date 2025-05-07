@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/presentation/screens/screens/login_screen_widget.dart';
 import 'package:robosoftassignment/presentation/screens/screens/product_screen_widget.dart';
 import 'package:robosoftassignment/presentation/screens/screens/signup_screen_widget.dart';
-import 'package:robosoftassignment/repositories/auth_repository.dart';
+import 'package:robosoftassignment/data/repositories/auth_repository.dart';
 
 void main() {
   runApp(AssignmentApp());

@@ -1,38 +1,11 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:robosoftassignment/repositories/auth_repository.dart';
-
-sealed class LoginState {}
-class LoginInitial extends LoginState {}
-class LoginLoading extends LoginState {}
-class LoginSuccess extends LoginState {
+sealed class ApiState {}
+class ApiInitial extends ApiState {}
+class ApiLoading extends ApiState {}
+class ApiSuccess extends ApiState {
   final String token;
-  LoginSuccess(this.token);
+  ApiSuccess(this.token);
 }
-class LoginFailure extends LoginState {
+class ApiFailure extends ApiState {
   final String message;
-  LoginFailure(this.message);
-}
-
-class LoginCubit extends Cubit<LoginState> {
-  final AuthRepository _repository;
-  LoginCubit(this._repository) : super(LoginInitial());
-
-  void login(String email, String password) async {
-    emit(LoginLoading());
-    try {
-      final token = await _repository.login(email, password);
-      emit(LoginSuccess(token));
-    } catch (e) {
-      emit(LoginFailure("Login failed"));
-    }
-  }
-  void signUp(String email, String password) async {
-    emit(LoginLoading());
-    try {
-      final token = await _repository.signup(email, password);
-      emit(LoginSuccess(token));
-    } catch (e) {
-      emit(LoginFailure("Signup failed"));
-    }
-  }
+  ApiFailure(this.message);
 }

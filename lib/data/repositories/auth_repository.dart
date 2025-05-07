@@ -1,4 +1,4 @@
-import 'package:robosoftassignment/repositories/interceptor/dio_interceptor.dart';
+import 'package:robosoftassignment/data/repositories/interceptor/dio_interceptor.dart';
 
 class AuthRepository {
   final DioInterceptor _dio = DioInterceptor();

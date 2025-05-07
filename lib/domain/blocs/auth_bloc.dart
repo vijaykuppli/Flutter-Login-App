@@ -1,29 +1,29 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:robosoftassignment/domain/block/auth_event.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
-import 'package:robosoftassignment/repositories/auth_repository.dart';
+import 'package:robosoftassignment/data/repositories/auth_repository.dart';
 
-class AuthBloc extends Bloc<AuthEvent, LoginState> {
+class AuthBloc extends Bloc<AuthEvent, ApiState> {
   final AuthRepository authRepository;
-  AuthBloc(this.authRepository) : super(LoginInitial()) {
+  AuthBloc(this.authRepository) : super(ApiInitial()) {
     on<LoginEvent>((event, emit) async {
-      emit(LoginLoading());
+      emit(ApiLoading());
 
       try {
         final token = await authRepository.login(event.email, event.password);
-        emit(LoginSuccess('login Successful $token'));
+        emit(ApiSuccess('login Successful $token'));
       } catch (exception) {
-        emit(LoginFailure('login failed $exception'));
+        emit(ApiFailure('login failed $exception'));
       }
     });
 
     on<SignupEvent>((event, emit) async {
-      emit(LoginLoading());
+      emit(ApiLoading());
       try {
         final msg = await authRepository.signup(event.email, event.password);
-        emit(LoginSuccess('Signup successful: $msg'));
+        emit(ApiSuccess('Signup successful: $msg'));
       } catch (e) {
-        emit(LoginFailure('Signup failed: ${e.toString()}'));
+        emit(ApiFailure('Signup failed: ${e.toString()}'));
       }
     });
   }

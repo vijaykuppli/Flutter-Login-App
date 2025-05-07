@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
-import 'package:robosoftassignment/repositories/auth_repository.dart';
+import 'package:robosoftassignment/data/repositories/auth_repository.dart';
+import 'package:robosoftassignment/domain/block/cubit/login_cubit.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -154,16 +155,16 @@ class SignUpState extends State<SignupScreen> {
                   ),
                   SizedBox(height: 20),
 
-                  BlocConsumer<LoginCubit, LoginState>(
+                  BlocConsumer<LoginCubit, ApiState>(
                     listener: (context, state) {
-                      if (state is LoginSuccess) {
+                      if (state is ApiSuccess) {
                         context.go('/login');
-                      } else if (state is LoginFailure) {
+                      } else if (state is ApiFailure) {
                         context.go("/login");
                       }
                     },
                     builder: (context, state) {
-                      if (state is LoginLoading) {
+                      if (state is ApiLoading) {
                         return CircularProgressIndicator();
                       }
                       return ElevatedButton(
