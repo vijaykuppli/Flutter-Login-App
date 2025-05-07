@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_cart_screen.dart';
+import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_home_screen.dart';
+import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_product_screen.dart';
+import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_profile_screen.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -20,10 +24,10 @@ class ProductScreen extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Center(child: Text('Home Screen')),
-            Center(child: Text('Products Screen')),
-            Center(child: Text('Profile Screen')),
-            Center(child: Text('Cart Screen')),
+            Center(child: TabHomeScreen()),
+            Center(child: TabProductScreen()),
+            Center(child: TabProfileScreen()),
+            Center(child: TabCartScreen()),
           ],
         ),
       ),
