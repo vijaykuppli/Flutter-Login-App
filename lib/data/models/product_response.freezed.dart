@@ -21,7 +21,7 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductResponse {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double? get price => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $ProductResponseCopyWith<$Res> {
     $Res Function(ProductResponse) then,
   ) = _$ProductResponseCopyWithImpl<$Res, ProductResponse>;
   @useResult
-  $Res call({String id, String name, double? price, String? description});
+  $Res call({int id, String name, double? price, String? description});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
                 null == id
                     ? _value.id
                     : id // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as int,
             name:
                 null == name
                     ? _value.name
@@ -103,7 +103,7 @@ abstract class _$$ProductResponseImplCopyWith<$Res>
   ) = __$$ProductResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, double? price, String? description});
+  $Res call({int id, String name, double? price, String? description});
 }
 
 /// @nodoc
@@ -131,7 +131,7 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
             null == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as int,
         name:
             null == name
                 ? _value.name
@@ -166,7 +166,7 @@ class _$ProductResponseImpl implements _ProductResponse {
       _$$ProductResponseImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
@@ -214,7 +214,7 @@ class _$ProductResponseImpl implements _ProductResponse {
 
 abstract class _ProductResponse implements ProductResponse {
   const factory _ProductResponse({
-    required final String id,
+    required final int id,
     required final String name,
     final double? price,
     final String? description,
@@ -224,7 +224,7 @@ abstract class _ProductResponse implements ProductResponse {
       _$ProductResponseImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override

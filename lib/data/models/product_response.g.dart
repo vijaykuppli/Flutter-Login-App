@@ -9,7 +9,7 @@ part of 'product_response.dart';
 _$ProductResponseImpl _$$ProductResponseImplFromJson(
   Map<String, dynamic> json,
 ) => _$ProductResponseImpl(
-  id: json['id'] as String,
+  id: (json['id'] as num).toInt(),
   name: json['name'] as String,
   price: (json['price'] as num?)?.toDouble(),
   description: json['description'] as String?,
