@@ -5,17 +5,18 @@ import 'package:robosoftassignment/domain/block/auth_state.dart';
 
 final product = ProductResponse(
   id: 0,
-  name: 'Book',
+  title: 'Book',
   price: 1.1,
   description: 'sample',
 );
+
 class ProductCubit extends Cubit<ApiState> {
   final ProductCrudRepository _productRepository;
   ProductCubit(this._productRepository) : super(ApiInitial());
 
   void addProduct() async {
     emit(ApiLoading());
-    
+
     try {
       final token = await _productRepository.addProduct(product.toJson());
       emit(ApiSuccess(token));
@@ -24,12 +25,25 @@ class ProductCubit extends Cubit<ApiState> {
     }
   }
 
-  void getProductsList() async{
+  void getProductsList() async {
     emit(ApiLoading());
 
-     try {
+    try {
       final token = await _productRepository.getProductsList();
       emit(ApiSuccess(token));
+    } catch (e) {
+      emit(ApiFailure("Adding Product has failed"));
+    }
+  }
+
+  void deleteProduct(int userId) async {
+    emit(ApiLoading());
+
+    try {
+      await _productRepository.deleteProduct(userId);
+
+      final getProductsList = await _productRepository.getProductsList();
+      emit(ApiSuccess(getProductsList));
     } catch (e) {
       emit(ApiFailure("Adding Product has failed"));
     }

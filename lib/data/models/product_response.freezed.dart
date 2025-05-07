@@ -22,10 +22,11 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductResponse {
   int get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  double? get price => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
 
   /// Serializes this ProductResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,10 +47,11 @@ abstract class $ProductResponseCopyWith<$Res> {
   @useResult
   $Res call({
     int id,
-    String? name,
-    double? price,
-    String? description,
-    String? image,
+    String title,
+    double price,
+    String description,
+    String image,
+    String category,
   });
 }
 
@@ -69,10 +71,11 @@ class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
   @override
   $Res call({
     Object? id = null,
-    Object? name = freezed,
-    Object? price = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
+    Object? title = null,
+    Object? price = null,
+    Object? description = null,
+    Object? image = null,
+    Object? category = null,
   }) {
     return _then(
       _value.copyWith(
@@ -81,26 +84,31 @@ class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
                     ? _value.id
                     : id // ignore: cast_nullable_to_non_nullable
                         as int,
-            name:
-                freezed == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
             price:
-                freezed == price
+                null == price
                     ? _value.price
                     : price // ignore: cast_nullable_to_non_nullable
-                        as double?,
+                        as double,
             description:
-                freezed == description
+                null == description
                     ? _value.description
                     : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
+                        as String,
             image:
-                freezed == image
+                null == image
                     ? _value.image
                     : image // ignore: cast_nullable_to_non_nullable
-                        as String?,
+                        as String,
+            category:
+                null == category
+                    ? _value.category
+                    : category // ignore: cast_nullable_to_non_nullable
+                        as String,
           )
           as $Val,
     );
@@ -118,10 +126,11 @@ abstract class _$$ProductResponseImplCopyWith<$Res>
   @useResult
   $Res call({
     int id,
-    String? name,
-    double? price,
-    String? description,
-    String? image,
+    String title,
+    double price,
+    String description,
+    String image,
+    String category,
   });
 }
 
@@ -140,10 +149,11 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = freezed,
-    Object? price = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
+    Object? title = null,
+    Object? price = null,
+    Object? description = null,
+    Object? image = null,
+    Object? category = null,
   }) {
     return _then(
       _$ProductResponseImpl(
@@ -152,26 +162,31 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
                     as int,
-        name:
-            freezed == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
         price:
-            freezed == price
+            null == price
                 ? _value.price
                 : price // ignore: cast_nullable_to_non_nullable
-                    as double?,
+                    as double,
         description:
-            freezed == description
+            null == description
                 ? _value.description
                 : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
+                    as String,
         image:
-            freezed == image
+            null == image
                 ? _value.image
                 : image // ignore: cast_nullable_to_non_nullable
-                    as String?,
+                    as String,
+        category:
+            null == category
+                ? _value.category
+                : category // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }
@@ -181,30 +196,39 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProductResponseImpl implements _ProductResponse {
   const _$ProductResponseImpl({
-    required this.id,
-    this.name,
-    this.price,
-    this.description,
-    this.image,
+    this.id = 0,
+    this.title = "",
+    this.price = 0.0,
+    this.description = "",
+    this.image = "",
+    this.category = "",
   });
 
   factory _$ProductResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductResponseImplFromJson(json);
 
   @override
+  @JsonKey()
   final int id;
   @override
-  final String? name;
+  @JsonKey()
+  final String title;
   @override
-  final double? price;
+  @JsonKey()
+  final double price;
   @override
-  final String? description;
+  @JsonKey()
+  final String description;
   @override
-  final String? image;
+  @JsonKey()
+  final String image;
+  @override
+  @JsonKey()
+  final String category;
 
   @override
   String toString() {
-    return 'ProductResponse(id: $id, name: $name, price: $price, description: $description, image: $image)';
+    return 'ProductResponse(id: $id, title: $title, price: $price, description: $description, image: $image, category: $category)';
   }
 
   @override
@@ -213,17 +237,19 @@ class _$ProductResponseImpl implements _ProductResponse {
         (other.runtimeType == runtimeType &&
             other is _$ProductResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, price, description, image);
+      Object.hash(runtimeType, id, title, price, description, image, category);
 
   /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -244,11 +270,12 @@ class _$ProductResponseImpl implements _ProductResponse {
 
 abstract class _ProductResponse implements ProductResponse {
   const factory _ProductResponse({
-    required final int id,
-    final String? name,
-    final double? price,
-    final String? description,
-    final String? image,
+    final int id,
+    final String title,
+    final double price,
+    final String description,
+    final String image,
+    final String category,
   }) = _$ProductResponseImpl;
 
   factory _ProductResponse.fromJson(Map<String, dynamic> json) =
@@ -257,13 +284,15 @@ abstract class _ProductResponse implements ProductResponse {
   @override
   int get id;
   @override
-  String? get name;
+  String get title;
   @override
-  double? get price;
+  double get price;
   @override
-  String? get description;
+  String get description;
   @override
-  String? get image;
+  String get image;
+  @override
+  String get category;
 
   /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.

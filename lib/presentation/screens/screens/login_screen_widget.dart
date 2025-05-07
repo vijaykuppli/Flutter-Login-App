@@ -61,6 +61,7 @@ class _LoginState extends State<LoginScren> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Enter valid email',
+                        hintStyle: TextStyle(color: Colors.grey),
                         hintText: 'Enter valid email id as abc@gmail.com',
                       ),
                     ),
@@ -84,6 +85,7 @@ class _LoginState extends State<LoginScren> {
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
+                        hintStyle: TextStyle(color: Colors.grey),
                         labelText: 'Password',
                         hintText: 'Enter secure password',
                       ),

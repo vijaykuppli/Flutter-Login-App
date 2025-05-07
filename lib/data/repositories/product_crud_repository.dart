@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:robosoftassignment/data/models/product_response.dart';
 import 'package:robosoftassignment/data/repositories/interceptor/dio_interceptor.dart';
 
@@ -22,5 +19,10 @@ class ProductCrudRepository {
             .map((e) => ProductResponse.fromJson(e as Map<String, dynamic>))
             .toList();
     return products;
+  }
+
+   Future<String> deleteProduct(int userId) async {
+    final response = await _dio.dio.delete("products/$userId");
+    return response.data['description'];
   }
 }

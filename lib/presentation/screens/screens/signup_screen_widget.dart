@@ -106,6 +106,7 @@ class SignUpState extends State<SignupScreen> {
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
+                        hintStyle: TextStyle(color: Colors.grey),
                         labelText: 'Phone Number',
                         hintText: 'Enter valid Phone number',
                       ),
@@ -129,6 +130,7 @@ class SignUpState extends State<SignupScreen> {
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
+                        hintStyle: TextStyle(color: Colors.grey),
                         labelText: 'Password',
                         hintText: 'Enter secure password',
                       ),

@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:robosoftassignment/data/models/product_response.dart';
 import 'package:robosoftassignment/data/repositories/product_crud_repository.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
 import 'package:robosoftassignment/domain/block/cubit/product_cubit.dart';
 import 'package:robosoftassignment/presentation/screens/screens/custom_widgets/snack_bar_widget.dart';
 
 class TabHomeScreen extends StatefulWidget {
-  const TabHomeScreen({super.key});
+  TabHomeScreen({super.key, required this.productData});
+  ProductResponse productData;
 
   @override
   State<StatefulWidget> createState() {
@@ -18,9 +20,30 @@ class TabHomeScreen extends StatefulWidget {
 
 class _TabHomeScreenState extends State<TabHomeScreen> {
   var _formKey = GlobalKey<FormState>(); // 🔑 Form key
+  final titleController = TextEditingController();
+  final priceController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final categoryController = TextEditingController();
+
+  @override
+  void dispose() {
+    titleController.dispose();
+    priceController.dispose();
+    descriptionController.dispose();
+    categoryController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      ProductResponse productResponse = widget.productData;
+      titleController.text = productResponse.title.toString();
+      priceController.text = productResponse.price.toString();
+      descriptionController.text = productResponse.description.toString();
+      categoryController.text = productResponse.category.toString();
+    });
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -42,6 +65,8 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                       //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                       padding: EdgeInsets.symmetric(horizontal: 15),
                       child: TextFormField(
+                        onSaved: (newValue) => titleController.text,
+                        controller: titleController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Title is required';
@@ -49,11 +74,13 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                           if (value.length < 3) {
                             return 'Title must be at least 3 characters';
                           }
-                          return null;
+
+                          return "";
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Title',
+                          hintStyle: TextStyle(color: Colors.grey),
                           hintText: 'Enter title',
                         ),
                       ),
@@ -63,11 +90,12 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                       //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                       padding: EdgeInsets.symmetric(horizontal: 15),
                       child: TextFormField(
+                        controller: priceController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Price is required';
                           }
-                          return null;
+                          return "";
                         },
                         keyboardType: TextInputType.number,
                         maxLength: 10,
@@ -77,6 +105,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Enter Price',
+                          hintStyle: TextStyle(color: Colors.grey),
                           hintText: 'Enter Price',
                         ),
                       ),
@@ -86,15 +115,17 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                       //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                       padding: EdgeInsets.symmetric(horizontal: 15),
                       child: TextFormField(
+                        controller: descriptionController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Description is required';
                           }
-                          return null;
+                          return "";
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Please enter Description',
+                          hintStyle: TextStyle(color: Colors.grey),
                           hintText: 'Enter atleast 5 character',
                         ),
                       ),
@@ -108,15 +139,17 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                       ),
                       //padding: EdgeInsets.symmetric(horizontal: 15),
                       child: TextFormField(
+                        controller: categoryController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter category';
                           }
-                          return null;
+                          return "";
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Category',
+                          hintStyle: TextStyle(color: Colors.grey),
                           hintText: 'Enter Category',
                         ),
                       ),
@@ -129,7 +162,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                           setState(() {
                             context.go("/product");
                           });
-                        
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             CustomSnackBar(
                               message: 'Product Added Successfully',
