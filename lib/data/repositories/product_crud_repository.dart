@@ -1,4 +1,4 @@
-import 'package:robosoftassignment/data/models/product_response.dart';
+import 'package:robosoftassignment/data/models/product/product_response.dart';
 import 'package:robosoftassignment/data/repositories/interceptor/dio_interceptor.dart';
 
 class ProductCrudRepository {

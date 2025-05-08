@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:robosoftassignment/data/models/product_response.dart';
+import 'package:robosoftassignment/data/models/product/product_response.dart';
 import 'package:robosoftassignment/presentation/screens/screens/login_screen_widget.dart';
 import 'package:robosoftassignment/presentation/screens/screens/product_screen_widget.dart';
 import 'package:robosoftassignment/data/repositories/auth_repository.dart';

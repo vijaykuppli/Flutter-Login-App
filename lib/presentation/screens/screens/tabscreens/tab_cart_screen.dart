@@ -12,6 +12,6 @@ class TabCartScreen extends StatefulWidget {
 class _TabCartScreenState extends State<TabCartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Cart Screen Widget")));
+    return const SizedBox.shrink();
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:robosoftassignment/data/models/product_response.dart';
+import 'package:robosoftassignment/data/models/product/product_response.dart';
 import 'package:robosoftassignment/data/repositories/product_crud_repository.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
 
