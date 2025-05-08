@@ -75,7 +75,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                             return 'Title must be at least 3 characters';
                           }
 
-                          return "";
+                          return null;
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -95,7 +95,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                           if (value == null || value.isEmpty) {
                             return 'Price is required';
                           }
-                          return "";
+                          return null;
                         },
                         keyboardType: TextInputType.number,
                         maxLength: 10,
@@ -120,7 +120,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                           if (value == null || value.isEmpty) {
                             return 'Description is required';
                           }
-                          return "";
+                          return null;
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -144,7 +144,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                           if (value == null || value.isEmpty) {
                             return 'Please enter category';
                           }
-                          return "";
+                          return null;
                         },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -186,7 +186,7 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                         return ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              context.read<ProductCubit>().addProduct();
+                              context.read<ProductCubit>().addProduct(widget.productData);
                             }
                           },
                           style: ElevatedButton.styleFrom(
