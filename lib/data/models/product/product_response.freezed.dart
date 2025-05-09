@@ -27,6 +27,7 @@ mixin _$ProductResponse {
   String get description => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
 
   /// Serializes this ProductResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,6 +53,7 @@ abstract class $ProductResponseCopyWith<$Res> {
     String description,
     String image,
     String category,
+    int quantity,
   });
 }
 
@@ -76,6 +78,7 @@ class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
     Object? description = null,
     Object? image = null,
     Object? category = null,
+    Object? quantity = null,
   }) {
     return _then(
       _value.copyWith(
@@ -109,6 +112,11 @@ class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
                     ? _value.category
                     : category // ignore: cast_nullable_to_non_nullable
                         as String,
+            quantity:
+                null == quantity
+                    ? _value.quantity
+                    : quantity // ignore: cast_nullable_to_non_nullable
+                        as int,
           )
           as $Val,
     );
@@ -131,6 +139,7 @@ abstract class _$$ProductResponseImplCopyWith<$Res>
     String description,
     String image,
     String category,
+    int quantity,
   });
 }
 
@@ -154,6 +163,7 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
     Object? description = null,
     Object? image = null,
     Object? category = null,
+    Object? quantity = null,
   }) {
     return _then(
       _$ProductResponseImpl(
@@ -187,6 +197,11 @@ class __$$ProductResponseImplCopyWithImpl<$Res>
                 ? _value.category
                 : category // ignore: cast_nullable_to_non_nullable
                     as String,
+        quantity:
+            null == quantity
+                ? _value.quantity
+                : quantity // ignore: cast_nullable_to_non_nullable
+                    as int,
       ),
     );
   }
@@ -202,6 +217,7 @@ class _$ProductResponseImpl implements _ProductResponse {
     this.description = "",
     this.image = "",
     this.category = "",
+    this.quantity = 0,
   });
 
   factory _$ProductResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -225,10 +241,13 @@ class _$ProductResponseImpl implements _ProductResponse {
   @override
   @JsonKey()
   final String category;
+  @override
+  @JsonKey()
+  final int quantity;
 
   @override
   String toString() {
-    return 'ProductResponse(id: $id, title: $title, price: $price, description: $description, image: $image, category: $category)';
+    return 'ProductResponse(id: $id, title: $title, price: $price, description: $description, image: $image, category: $category, quantity: $quantity)';
   }
 
   @override
@@ -243,13 +262,23 @@ class _$ProductResponseImpl implements _ProductResponse {
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.category, category) ||
-                other.category == category));
+                other.category == category) &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, price, description, image, category);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    price,
+    description,
+    image,
+    category,
+    quantity,
+  );
 
   /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -276,6 +305,7 @@ abstract class _ProductResponse implements ProductResponse {
     final String description,
     final String image,
     final String category,
+    final int quantity,
   }) = _$ProductResponseImpl;
 
   factory _ProductResponse.fromJson(Map<String, dynamic> json) =
@@ -293,6 +323,8 @@ abstract class _ProductResponse implements ProductResponse {
   String get image;
   @override
   String get category;
+  @override
+  int get quantity;
 
   /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.

@@ -15,6 +15,7 @@ _$ProductResponseImpl _$$ProductResponseImplFromJson(
   description: json['description'] as String? ?? "",
   image: json['image'] as String? ?? "",
   category: json['category'] as String? ?? "",
+  quantity: (json['quantity'] as num?)?.toInt() ?? 0,
 );
 
 Map<String, dynamic> _$$ProductResponseImplToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$ProductResponseImplToJson(
   'description': instance.description,
   'image': instance.image,
   'category': instance.category,
+  'quantity': instance.quantity,
 };

@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
 import 'package:robosoftassignment/data/repositories/auth_repository.dart';
 import 'package:robosoftassignment/domain/block/cubit/login_cubit.dart';
+import 'package:robosoftassignment/gen/assets.gen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -36,13 +38,13 @@ class SignUpState extends State<SignupScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 30.0),
                     child: Center(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
                         height: 100,
                         /*decoration: BoxDecoration( 
                         color: Colors.red, 
                         borderRadius: BorderRadius.circular(50.0)),*/
-                        child: Image.asset('assets/robo.png'),
+                        child: Image.asset(Assets.images.robo.path),
                       ),
                     ),
                   ),
@@ -185,6 +187,24 @@ class SignUpState extends State<SignupScreen> {
                         child: Text("Sign Up"),
                       );
                     },
+                  ),
+                  SizedBox(height: 50),
+                  Text.rich(
+                    TextSpan(
+                      text: 'Already have an account? ',
+                      style: TextStyle(color: Colors.black),
+                      children: [
+                        TextSpan(
+                          text: 'Login',
+                          style: TextStyle(color: Colors.blue),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  context.go("/login");
+                                },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

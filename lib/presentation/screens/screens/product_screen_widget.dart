@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:robosoftassignment/data/models/product/product_response.dart';
-import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_cart_screen.dart';
+import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_cart_checkout.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_home_screen.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_product_screen.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_profile_screen.dart';
@@ -60,7 +60,7 @@ class _ProductScreenState extends State<ProductScreen>
             Center(child: TabHomeScreen(productData: widget.productData)),
             Center(child: TabProductScreen(onGoToSecondTab: switchToHomeTab)),
             Center(child: TabProfileScreen()),
-            Center(child: TabCartScreen()),
+            Center(child: TabCartCheckout()),
           ],
         ),
       ),

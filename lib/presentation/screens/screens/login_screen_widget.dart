@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:robosoftassignment/domain/block/auth_state.dart';
 import 'package:robosoftassignment/data/repositories/auth_repository.dart';
 import 'package:robosoftassignment/domain/block/cubit/login_cubit.dart';
+import 'package:robosoftassignment/gen/assets.gen.dart';
 
 class LoginScren extends StatefulWidget {
   const LoginScren({super.key});
@@ -34,13 +36,13 @@ class _LoginState extends State<LoginScren> {
                   Padding(
                     padding: const EdgeInsets.only(top: 30.0),
                     child: Center(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
                         height: 100,
                         /*decoration: BoxDecoration( 
                         color: Colors.red, 
                         borderRadius: BorderRadius.circular(50.0)),*/
-                        child: Image.asset('assets/robo.png'),
+                        child: Image.asset(Assets.images.robo.path),
                       ),
                     ),
                   ),
@@ -120,6 +122,25 @@ class _LoginState extends State<LoginScren> {
                         child: Text("Log In"),
                       );
                     },
+                  ),
+
+                  SizedBox(height: 50),
+                  Text.rich(
+                    TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(color: Colors.black),
+                      children: [
+                        TextSpan(
+                          text: 'SignUp',
+                          style: TextStyle(color: Colors.blue),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  context.go("/");
+                                },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
