@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:robosoftassignment/data/models/product_response.dart';
+import 'package:robosoftassignment/data/models/product/product_response.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_cart_screen.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_home_screen.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_product_screen.dart';
 import 'package:robosoftassignment/presentation/screens/screens/tabscreens/tab_profile_screen.dart';
 
+// ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
   ProductScreen({super.key, required this.productData});
   ProductResponse productData;
