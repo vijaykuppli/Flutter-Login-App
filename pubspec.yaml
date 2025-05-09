@@ -34,6 +34,7 @@ dependencies:
   dio: ^5.3.2
   logger: ^2.0.2
   go_router: ^13.0.0
+  get_it: ^7.6.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 
@@ -53,7 +54,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   freezed: ^2.4.6
   json_serializable: ^6.7.1
-  build_runner: ^2.4.6
+  flutter_gen_runner: ^5.4.0 # or latest
+  build_runner: ^2.4.6       # or compatible with flutter_gen
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -66,7 +68,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/robo.png
+    - assets/images/robo.png
+    - assets/images/profile_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

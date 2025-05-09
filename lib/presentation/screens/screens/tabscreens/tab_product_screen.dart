@@ -54,8 +54,6 @@ class _TabProductScreenState extends State<TabProductScreen> {
                           .map((e) => ProductResponse.fromJson(e.toJson()))
                           .toList();
                 }
-
-                print("before after api ${apiProductsList.length}");
                 return ListView.builder(
                   itemCount: apiProductsList.length,
                   itemBuilder: (context, index) {
@@ -65,11 +63,11 @@ class _TabProductScreenState extends State<TabProductScreen> {
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: ListTile(
                         leading: Image.network(
-                          apiProductsList[index].image!,
+                          apiProductsList[index].image,
                           width: 50,
                           height: 50,
                         ),
-                        title: Text(apiProductsList[index].title!),
+                        title: Text(apiProductsList[index].title),
                         subtitle: Text(
                           apiProductsList[index].description,
                           maxLines: 2,

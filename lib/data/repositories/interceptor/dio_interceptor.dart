@@ -29,7 +29,7 @@ class DioInterceptor {
           logger.i('Data: ${response.data}');
           return handler.next(response);
         },
-        onError: (DioError e, handler) {
+        onError: (DioException e, handler) {
           logger.e(
             'ERROR[${e.response?.statusCode}] => PATH: ${e.requestOptions.path}',
           );

@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
 
 class CustomCircleButton extends StatelessWidget {
-  final VoidCallback? onTap;
+  /**
+   * Since Function expects int we are sending 0 and 1 value for add/minus clicks
+   *////
+  final void Function(int isAddButtonClicked) onTap;
+  final IconData icon;
 
-  const CustomCircleButton({super.key, this.onTap});
+  const CustomCircleButton({
+    super.key,
+    required this.onTap,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
+    var isAddButtonClicked = icon == Icons.add ? 1 : 0;
+
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        onTap.call(isAddButtonClicked);
+      },
       child: Container(
-        width: 20,
-        height: 20,
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 59, 227, 87),
-          shape: BoxShape.circle,
-        ),
-        child: Icon(Icons.add, color: Colors.green, size: 25),
+        width: 30,
+        height: 30,
+        decoration: const BoxDecoration(shape: BoxShape.circle),
+        child: Icon(icon, color: Colors.green, size: 25),
       ),
     );
   }

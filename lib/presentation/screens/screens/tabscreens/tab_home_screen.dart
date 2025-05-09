@@ -19,7 +19,7 @@ class TabHomeScreen extends StatefulWidget {
 }
 
 class _TabHomeScreenState extends State<TabHomeScreen> {
-  var _formKey = GlobalKey<FormState>(); // 🔑 Form key
+  final _formKey = GlobalKey<FormState>(); // 🔑 Form key
   final titleController = TextEditingController();
   final priceController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -186,7 +186,9 @@ class _TabHomeScreenState extends State<TabHomeScreen> {
                         return ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              context.read<ProductCubit>().addProduct(widget.productData);
+                              context.read<ProductCubit>().addProduct(
+                                widget.productData,
+                              );
                             }
                           },
                           style: ElevatedButton.styleFrom(
