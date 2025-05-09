@@ -70,7 +70,13 @@ class _TabProductScreenState extends State<TabProductScreen> {
                           height: 50,
                         ),
                         title: Text(apiProductsList[index].title!),
-                        subtitle: Text(apiProductsList[index].description!),
+                        subtitle: Text(
+                          apiProductsList[index].description,
+                          maxLines: 2,
+                          style: const TextStyle(
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

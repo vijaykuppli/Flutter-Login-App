@@ -4,6 +4,7 @@ import 'package:robosoftassignment/data/models/product/product_response.dart';
 import 'package:robosoftassignment/presentation/screens/screens/login_screen_widget.dart';
 import 'package:robosoftassignment/presentation/screens/screens/product_screen_widget.dart';
 import 'package:robosoftassignment/data/repositories/auth_repository.dart';
+import 'package:robosoftassignment/presentation/screens/screens/signup_screen_widget.dart';
 
 void main() {
   runApp(AssignmentApp());
